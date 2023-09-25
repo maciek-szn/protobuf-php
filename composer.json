@@ -1,5 +1,5 @@
 {
-  "name": "google/protobuf",
+  "name": "maciek-szn/protobuf",
   "type": "library",
   "description": "proto library for PHP",
   "keywords": ["proto"],
