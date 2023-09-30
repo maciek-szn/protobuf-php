@@ -1597,7 +1597,7 @@ class Message
 
         $values = $this->$getter();
 
-        if (($field->getName() === 'incrementality' || $field->getName() === 'direction_id' || $field->getName() === 'route_id' || ($field->getName() === 'delay' && $field->getNumber() === 1)) && $values !== null) {
+        if (($field->getName() === 'incrementality' || ($field->getName() === 'delay' && $field->getNumber() === 1)) && $values !== null) {
             return true;
         }
         
