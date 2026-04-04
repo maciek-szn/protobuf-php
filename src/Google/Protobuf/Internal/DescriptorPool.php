@@ -75,7 +75,9 @@ class DescriptorPool
         $this->unique_descs[$descriptor->getFullName()] =
             $descriptor;
         $this->class_to_desc[$descriptor->getClass()] = $descriptor;
-        $this->class_to_desc[$descriptor->getLegacyClass()] = $descriptor;
+        if ($descriptor->getLegacyClass() !== null) {
+            $this->class_to_desc[$descriptor->getLegacyClass()] = $descriptor;
+        }
         if ($descriptor->getPreviouslyUnreservedClass() !== null) {
             $this->class_to_desc[$descriptor->getPreviouslyUnreservedClass()] = $descriptor;
         }
@@ -92,7 +94,9 @@ class DescriptorPool
         $this->proto_to_class[$descriptor->getFullName()] =
             $descriptor->getClass();
         $this->class_to_enum_desc[$descriptor->getClass()] = $descriptor;
-        $this->class_to_enum_desc[$descriptor->getLegacyClass()] = $descriptor;
+        if ($descriptor->getLegacyClass() !== null) {
+            $this->class_to_enum_desc[$descriptor->getLegacyClass()] = $descriptor;
+        }
     }
 
     public function getDescriptorByClassName($klass)
