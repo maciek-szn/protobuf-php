@@ -54,9 +54,7 @@ class Descriptor
     public function addField($field)
     {
         $this->field[$field->getNumber()] = $field;
-        if ($field->getJsonName() !== null) {
-            $this->json_to_field[$field->getJsonName()] = $field;
-        }
+        $this->json_to_field[$field->getJsonName() ?? ''] = $field;
         $this->name_to_field[$field->getName()] = $field;
         $this->index_to_field[] = $field;
     }
