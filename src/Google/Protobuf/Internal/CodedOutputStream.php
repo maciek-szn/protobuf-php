@@ -105,7 +105,7 @@ class CodedOutputStream
             $low = (($low >> 7) & ~(0x7F << ((PHP_INT_SIZE << 3) - 7)) | $carry);
             $current++;
         }
-        $buffer[$current] = chr($low & 0xFF);
+        $buffer[$current] = chr($low);
         return $current + 1;
     }
 
